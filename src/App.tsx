@@ -14,7 +14,7 @@ const defaultUrl =
 //const defaultUrl = 'https://nymtech.net/favicon.svg'
 const args = { mode: 'unsafe-ignore-cors' };
 const mixFetchOptions: SetupMixFetchOps = {
-	preferredGateway: '3B7PsbXFuqq6rerYFLw5HPbQb4UmBqAhfWURRovMmWoj',
+	preferredGateway: 'E3mvZTHQCdBvhfr178Swx9g4QG3kkRUun7YnToLMcMbM',
 	preferredNetworkRequester:
 		'AQRRAs9oc8QWXAFBs44YhCKUny7AyLsfLy91pwmGgxuf.CWUKoKA1afSKyw5BnFJJg19UDgnaVATupsFhQpyTEBHJ@EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
 	mixFetchOverride: {
