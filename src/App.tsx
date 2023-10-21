@@ -13,6 +13,20 @@ const defaultUrl =
 	'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,nym,monero&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en';
 //const defaultUrl = 'https://nymtech.net/favicon.svg'
 const args = { mode: 'unsafe-ignore-cors' };
+
+const extra = {
+	hiddenGateways: [
+	  {
+		owner: 'n1kymvkx6vsq7pvn6hfurkpg06h3j4gxj4em7tlg',
+		host: 'gateway1.nymtech.net',
+		explicitIp: '213.219.38.119',
+		identityKey: 'E3mvZTHQCdBvhfr178Swx9g4QG3kkRUun7YnToLMcMbM',
+		sphinxKey: 'CYcrjoJ8GT7Dp54zViUyyRUfegeRCyPifWQZHRgMZrfX',
+	  },
+	],
+  };
+
+
 const mixFetchOptions: SetupMixFetchOps = {
 	preferredGateway: 'E3mvZTHQCdBvhfr178Swx9g4QG3kkRUun7YnToLMcMbM',
 	preferredNetworkRequester:
@@ -74,7 +88,7 @@ function App() {
 								</TableRow>
 							</TableHead>
 							<TableBody>
-								{data && !data.hasOwnProperty("error") &&
+								{data ? !data.hasOwnProperty("error") &&
 									data.map(ticker => {
 										return (
 											<TableRow key={ticker.id}>
@@ -85,7 +99,7 @@ function App() {
 												<TableCell>{ticker.price_change_percentage_24h}%</TableCell>
 											</TableRow>
 										);
-									})}
+									}) : "  Loading"}
 							</TableBody>
 						</Table>
 					</TableContainer>
