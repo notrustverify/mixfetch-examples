@@ -34,7 +34,7 @@ const mixFetchOptions: SetupMixFetchOps = {
 	mixFetchOverride: {
 		requestTimeoutMs: 60_000
 	},
-	extra: {},
+	extra: extra,
 	forceTls: true
 };
 
@@ -99,7 +99,7 @@ function App() {
 												<TableCell>{ticker.price_change_percentage_24h}%</TableCell>
 											</TableRow>
 										);
-									}) : "  Loading"}
+									}) : "Loading"}
 							</TableBody>
 						</Table>
 					</TableContainer>
