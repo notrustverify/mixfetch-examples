@@ -21,7 +21,7 @@ const mixFetchOptions: SetupMixFetchOps = {
 		requestTimeoutMs: 60_000
 	},
 	extra: {},
-	forceTls: false
+	forceTls: true
 };
 
 let alreadyRun = false;
