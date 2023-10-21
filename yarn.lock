@@ -2087,11 +2087,6 @@
   resolved "https://registry.yarnpkg.com/@nymproject/mix-fetch-full-fat/-/mix-fetch-full-fat-1.2.0.tgz#3942ea3a8d360b244034194d25f404210f8e2408"
   integrity sha512-WH2+sBCRk6NMJdRgjlgDwaIk72g6Evlu2rsmmoCvMlqYDWDS5xUMA0vYaNGBjRSROXDWNPW2OIgZ98OFTa0EFw==
 
-"@nymproject/mix-fetch@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nymproject/mix-fetch/-/mix-fetch-1.2.0.tgz#0f09248328d3661cfb4a0cd3bcdfef4ed503205b"
-  integrity sha512-lvokm7Fh9/cyzOtovgjgbfgRjAL8YQXDGZt8wLTkos7FJFc1u0DZbUESSc14Mz+ZoShMvKbiocq3lgZCgnplzg==
-
 "@octokit/auth-token@^2.4.4":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@octokit/auth-token/-/auth-token-2.5.0.tgz#27c37ea26c205f28443402477ffd261311f21e36"
