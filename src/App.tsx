@@ -10,7 +10,7 @@ import TableBody from '@mui/material/TableBody';
 import { Box, CssBaseline, Typography } from '@mui/material';
 
 const defaultUrl =
-	'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,nym,monero&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en';
+	'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en';
 //const defaultUrl = 'https://nymtech.net/favicon.svg'
 const args = { mode: 'unsafe-ignore-cors' };
 
@@ -49,8 +49,13 @@ function App() {
 			setData(undefined);
 			const response = await mixFetch(url, args, mixFetchOptions);
 			console.log(response);
-			const resHtml = await response.text();
-			setData(JSON.parse(resHtml));
+
+			console.log("ddfdfd"+response.ok)
+			if(response.ok){
+				setData(JSON.parse(await response.text()));
+			}
+			else
+				setData({"error": response.statusText})
 		} catch (err) {
 			setData({"error": err})
 			console.log(JSON.stringify(err))
@@ -70,6 +75,16 @@ function App() {
 		<>
 			<br/>
 			<Typography variant="h4">Privacy preserved Cryptocurrency Prices</Typography>
+			<Box
+				sx={{
+					width: '100%',
+					height: 60,
+					textAlign: 'center',
+					padding: "1em"
+				}}
+			>
+				<Typography align="center" variant='small'>Developed by <a href='https://notrustverify.ch'>No Trust Verify</a>, powered by <a href="https://nymtech.net/">Nym</a></Typography>
+			</Box>
 			<div>
 				{
 					data && data.hasOwnProperty("error") && <>Error with application: {JSON.stringify(data.error)}</> 
@@ -79,6 +94,7 @@ function App() {
 						<Table>
 							<TableHead>
 								<TableRow>
+									<TableCell></TableCell>
 									<TableCell>Name</TableCell>
 									<TableCell>Price</TableCell>
 									<TableCell>High (24h)</TableCell>
@@ -92,6 +108,7 @@ function App() {
 									data.map(ticker => {
 										return (
 											<TableRow key={ticker.id}>
+												<TableCell>{ticker.market_cap_rank}</TableCell>
 												<TableCell>{ticker.id.charAt(0).toUpperCase() + ticker.id.slice(1)}</TableCell>
 												<TableCell>${ticker.current_price}</TableCell>
 												<TableCell>${ticker.high_24h}</TableCell>
@@ -105,17 +122,7 @@ function App() {
 					</TableContainer>
 				}
 			</div>
-			<Box
-				sx={{
-					position: 'fixed',
-					bottom: 0,
-					width: '100%',
-					height: 60,
-					textAlign: 'center',
-				}}
-			>
-				<Typography align="center">Developed by <a href='https://notrustverify.ch'>No Trust Verify</a>, powered by <a href="https://nymtech.net/">Nym</a></Typography>
-			</Box>
+
 		</>
 	);
 }
