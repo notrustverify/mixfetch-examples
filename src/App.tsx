@@ -50,7 +50,6 @@ function App() {
 			const response = await mixFetch(url, args, mixFetchOptions);
 			console.log(response);
 
-			console.log("ddfdfd"+response.ok)
 			if(response.ok){
 				setData(JSON.parse(await response.text()));
 			}
@@ -83,7 +82,7 @@ function App() {
 					padding: "1em"
 				}}
 			>
-				<Typography align="center" variant='small'>Developed by <a href='https://notrustverify.ch'>No Trust Verify</a>, powered by <a href="https://nymtech.net/">Nym</a></Typography>
+				<Typography align="center" variant='caption'>Developed by <a href='https://notrustverify.ch'>No Trust Verify</a>, powered by <a href="https://nymtech.net/">Nym</a></Typography>
 			</Box>
 			<div>
 				{
