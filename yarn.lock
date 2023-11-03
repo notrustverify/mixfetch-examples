@@ -2082,10 +2082,10 @@
     read-package-json-fast "^3.0.0"
     which "^3.0.0"
 
-"@nymproject/mix-fetch-full-fat@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@nymproject/mix-fetch-full-fat/-/mix-fetch-full-fat-1.2.0.tgz#3942ea3a8d360b244034194d25f404210f8e2408"
-  integrity sha512-WH2+sBCRk6NMJdRgjlgDwaIk72g6Evlu2rsmmoCvMlqYDWDS5xUMA0vYaNGBjRSROXDWNPW2OIgZ98OFTa0EFw==
+"@nymproject/mix-fetch-full-fat@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@nymproject/mix-fetch-full-fat/-/mix-fetch-full-fat-1.2.1.tgz#7e9c28acd98aac8daddb2ffc34212fb476e4f1e4"
+  integrity sha512-rvSzQIfcBmhFKN0ZlDyMS9rK1RUWCszqZZDXlIL0AImwvJnnpJxAHx6wMABMx9u5np9LE0tbmXSZVhZCM/Q4Ww==
 
 "@octokit/auth-token@^2.4.4":
   version "2.5.0"

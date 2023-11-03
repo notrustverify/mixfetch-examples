@@ -13,7 +13,7 @@ const defaultUrl =
 	'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en';
 //const defaultUrl = 'https://nymtech.net/favicon.svg'
 const args = { mode: 'unsafe-ignore-cors' };
-
+/*
 const extra = {
 	hiddenGateways: [
 	  {
@@ -25,10 +25,22 @@ const extra = {
 	  },
 	],
   };
+*/
 
+const extra = {
+	hiddenGateways: [
+	  {
+		owner: 'n1phyudpgd98can5gqzywpumv7h47lkqfl458c8z',
+		host: 'gw1.notrustverify.ch',
+		explicitIp: '172.105.93.66',
+		identityKey: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
+		sphinxKey: '3Q9pBR2RZ2xd6WJJPXPxpQniqvdtpv4fUTSFGL4vhqJJ',
+	  },
+	],
+  };
 
 const mixFetchOptions: SetupMixFetchOps = {
-	preferredGateway: 'E3mvZTHQCdBvhfr178Swx9g4QG3kkRUun7YnToLMcMbM',
+	preferredGateway: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
 	preferredNetworkRequester:
 		'AQRRAs9oc8QWXAFBs44YhCKUny7AyLsfLy91pwmGgxuf.CWUKoKA1afSKyw5BnFJJg19UDgnaVATupsFhQpyTEBHJ@EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
 	mixFetchOverride: {
