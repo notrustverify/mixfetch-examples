@@ -29,15 +29,15 @@ const extra = {
 
 const extra = {
 	hiddenGateways: [
-	  {
-		owner: 'n1phyudpgd98can5gqzywpumv7h47lkqfl458c8z',
-		host: 'gw1.notrustverify.ch',
-		explicitIp: '172.105.93.66',
-		identityKey: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
-		sphinxKey: '3Q9pBR2RZ2xd6WJJPXPxpQniqvdtpv4fUTSFGL4vhqJJ',
-	  },
-	],
-  };
+		{
+			owner: 'n1phyudpgd98can5gqzywpumv7h47lkqfl458c8z',
+			host: 'gw1.notrustverify.ch',
+			explicitIp: '172.105.93.66',
+			identityKey: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
+			sphinxKey: '3Q9pBR2RZ2xd6WJJPXPxpQniqvdtpv4fUTSFGL4vhqJJ'
+		}
+	]
+};
 
 const mixFetchOptions: SetupMixFetchOps = {
 	preferredGateway: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
@@ -46,7 +46,6 @@ const mixFetchOptions: SetupMixFetchOps = {
 	mixFetchOverride: {
 		requestTimeoutMs: 60_000
 	},
-	extra: extra,
 	forceTls: true
 };
 
@@ -62,14 +61,12 @@ function App() {
 			const response = await mixFetch(url, args, mixFetchOptions);
 			console.log(response);
 
-			if(response.ok){
+			if (response.ok) {
 				setData(JSON.parse(await response.text()));
-			}
-			else
-				setData({"error": response.statusText})
+			} else setData({ error: response.statusText });
 		} catch (err) {
-			setData({"error": err})
-			console.log(JSON.stringify(err))
+			setData({ error: err });
+			console.log(JSON.stringify(err));
 			console.log(err);
 		}
 	}, [url]);
@@ -81,25 +78,25 @@ function App() {
 		}
 	}, []);
 
-
 	return (
 		<>
-			<br/>
+			<br />
 			<Typography variant="h4">Privacy preserved Cryptocurrency Prices</Typography>
 			<Box
 				sx={{
 					width: '100%',
 					height: 60,
 					textAlign: 'center',
-					padding: "1em"
+					padding: '1em'
 				}}
 			>
-				<Typography align="center" variant='caption'>Developed by <a href='https://notrustverify.ch'>No Trust Verify</a>, powered by <a href="https://nymtech.net/">Nym</a></Typography>
+				<Typography align="center" variant="caption">
+					Developed by <a href="https://notrustverify.ch">No Trust Verify</a>, powered by{' '}
+					<a href="https://nymtech.net/">Nym</a>
+				</Typography>
 			</Box>
 			<div>
-				{
-					data && data.hasOwnProperty("error") && <>Error with application: {JSON.stringify(data.error)}</> 
-				}
+				{data && data.hasOwnProperty('error') && <>Error with application: {JSON.stringify(data.error)}</>}
 				{
 					<TableContainer>
 						<Table>
@@ -111,29 +108,31 @@ function App() {
 									<TableCell>High (24h)</TableCell>
 									<TableCell>Low (24h)</TableCell>
 									<TableCell>Price Change (24h)</TableCell>
-
 								</TableRow>
 							</TableHead>
 							<TableBody>
-								{data ? !data.hasOwnProperty("error") &&
-									data.map(ticker => {
-										return (
-											<TableRow key={ticker.id}>
-												<TableCell>{ticker.market_cap_rank}</TableCell>
-												<TableCell>{ticker.id.charAt(0).toUpperCase() + ticker.id.slice(1)}</TableCell>
-												<TableCell>${ticker.current_price}</TableCell>
-												<TableCell>${ticker.high_24h}</TableCell>
-												<TableCell>${ticker.low_24h}</TableCell>
-												<TableCell>{ticker.price_change_percentage_24h}%</TableCell>
-											</TableRow>
-										);
-									}) : "Loading"}
+								{data
+									? !data.hasOwnProperty('error') &&
+									  data.map(ticker => {
+											return (
+												<TableRow key={ticker.id}>
+													<TableCell>{ticker.market_cap_rank}</TableCell>
+													<TableCell>
+														{ticker.id.charAt(0).toUpperCase() + ticker.id.slice(1)}
+													</TableCell>
+													<TableCell>${ticker.current_price}</TableCell>
+													<TableCell>${ticker.high_24h}</TableCell>
+													<TableCell>${ticker.low_24h}</TableCell>
+													<TableCell>{ticker.price_change_percentage_24h}%</TableCell>
+												</TableRow>
+											);
+									  })
+									: 'Loading'}
 							</TableBody>
 						</Table>
 					</TableContainer>
 				}
 			</div>
-
 		</>
 	);
 }
