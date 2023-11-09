@@ -27,18 +27,6 @@ const extra = {
   };
 */
 
-const extra = {
-	hiddenGateways: [
-		{
-			owner: 'n1phyudpgd98can5gqzywpumv7h47lkqfl458c8z',
-			host: 'gw1.notrustverify.ch',
-			explicitIp: '172.105.93.66',
-			identityKey: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
-			sphinxKey: '3Q9pBR2RZ2xd6WJJPXPxpQniqvdtpv4fUTSFGL4vhqJJ'
-		}
-	]
-};
-
 const mixFetchOptions: SetupMixFetchOps = {
 	preferredGateway: 'EBT8jTD8o4tKng2NXrrcrzVhJiBnKpT1bJy5CMeArt2w',
 	preferredNetworkRequester:
